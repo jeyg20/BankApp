@@ -1,34 +1,29 @@
 package com.jeison;
 
-import java.util.Date;
-
 public class BankUsers {
+	private int accountNumber = 0;
 	private String firstName;
 	private String middleName;
 	private String lastName;
-	private byte age;
-	private Date birthDate = new Date();
+	private String birthDate;
 
 	public BankUsers() {
 		firstName = "example first name";
 		middleName = "example middle name";
 		lastName = "example last name";
-		age = 0;
 	}
-	/**
-	 * @param firstName
-	 * @param middleName
-	 * @param lastName
-	 * @param age
-	 * @param birthDate
-	 */
-	public BankUsers(String firstName, String middleName, String lastName, byte age, Date birthDate) {
+
+	public BankUsers(int accountNumber, String firstName, String middleName, String lastName, String birthDate) {
+		this.accountNumber = accountNumber;
 		this.firstName = firstName;
 		this.middleName = middleName;
 		this.lastName = lastName;
-		this.age = age;
-		this.birthDate = birthDate;
+		this.birthDate =  birthDate;
 	}
+
+	public int getAccountNumber() { return accountNumber;}
+
+	public void setAccountNumber(int accountNumber) {this.accountNumber = accountNumber;}
 
 	public String getFirstName() {
 		return firstName;
@@ -54,25 +49,18 @@ public class BankUsers {
 		this.lastName = lastName;
 	}
 
-	public byte getAge() {
-		return age;
-	}
-
-	public void setAge(byte age) {
-		this.age = age;
-	}
-
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
-	}
+	public void setBirthDate(String birthDate) { this.birthDate = birthDate; }
 
 	public String getUserInfo() {
 		return String.format(
-				"First name: %s" +
-				"Last name: %s", firstName, lastName) ;
+					"Account number: %s\n" +
+					"First name: %s\n" +
+					"Middle name: %s\n" +
+					"Last name: %s\n" +
+					"Birthday: %s\n",accountNumber, firstName, middleName, lastName, birthDate) ;
 	}
 }
