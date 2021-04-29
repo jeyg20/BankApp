@@ -7,11 +7,14 @@ public class Main {
     public static byte consoleInputStream;
     public static Scanner scanner = new Scanner(System.in);
 
+
     public static void main(String[] args) {
         BankUsers[] user = new BankUsers[10];
         user[0] = new BankUsers(); // Default user
         UserAccounts[] account = new UserAccounts[10];
         account[0] = new UserAccounts();
+        byte accountNumber = 0;
+
         System.out.println(
                 "Welcome to J.S.A Bank\n\n" +
                 "!To navigate in our app type the corresponding number of the menu you want to access!\n");
@@ -29,7 +32,7 @@ public class Main {
                     exit = false;
                     break;
                 case 2: // Register
-                    Register(user, account);
+                    Register(user, account, accountNumber++);
                     exit = false;
                     break;
                 case 3: // Exit
@@ -90,14 +93,14 @@ public class Main {
      * @param user Array user type BankUser to create new user
      * @param account Array account type UserAccount to create new account
      */
-    public static void Register(BankUsers[] user, UserAccounts[] account){
-        byte accountNumber = 0;
-        accountNumber++; // accountNumber increments to create new instance in the next array index
+    public static void Register(BankUsers[] user, UserAccounts[] account, byte accountNumber){
+       // accountNumber increments to create new instance in the next array index
+        System.out.println(accountNumber);
         String firstName;
         String middleName;
         String lastName;
         String birthDate;
-
+2
         // getting user info to register into the bank
         System.out.println("Welcome to register fill the following data");
         System.out.printf("Your account number is: %d\n", accountNumber );
