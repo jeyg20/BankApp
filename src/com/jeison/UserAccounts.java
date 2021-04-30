@@ -16,8 +16,16 @@ public class UserAccounts {
 	public void deposit(double deposit) { accountBalance += deposit; }
 
 	/**
-	 * Description: deposit withdraw to withdraw money from the account
+	 * Description: withdraw method to withdraw money from the account
+	 * does not allow balance to be negative
+	 *
 	 * @param withdraw Accept any amount to be withdraw
 	 */
-	public void withdraw(double withdraw) { accountBalance -= withdraw; }
+	public void withdraw(double withdraw) {
+		if (accountBalance < withdraw) {
+			System.out.println("Not enough founds");
+		} else {
+			accountBalance -= withdraw;
+		}
+	}
 }

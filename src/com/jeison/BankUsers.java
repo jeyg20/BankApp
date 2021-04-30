@@ -12,7 +12,10 @@ public class BankUsers {
 		middleName = "example middle name";
 		lastName = "example last name";
 	}
-
+	/*
+		Todo: perform capitalization to names
+	 	'.substring(0, 1).toUpperCase() + firstName.substring(1)'
+	 */
 	public BankUsers(int accountNumber, String firstName, String middleName, String lastName, String birthDate) {
 		this.accountNumber = accountNumber;
 		this.firstName = firstName;
@@ -55,6 +58,7 @@ public class BankUsers {
 
 	public void setBirthDate(String birthDate) { this.birthDate = birthDate; }
 
+	// Display user information
 	public String getUserInfo() {
 		return String.format(
 					"Account number: %s\n" +
@@ -62,5 +66,15 @@ public class BankUsers {
 					"Middle name: %s\n" +
 					"Last name: %s\n" +
 					"Birthday: %s\n",accountNumber, firstName, middleName, lastName, birthDate) ;
+	}
+
+	// Menu to perform account changes
+	public String changeUserInfo() {
+		return String.format(
+						"1. First name: %s\n" +
+						"2. Middle name: %s\n" +
+						"3. Last name: %s\n" +
+						"4. Birthday: %s\n" +
+						"5. Confirm information", firstName, middleName, lastName, birthDate) ;
 	}
 }
